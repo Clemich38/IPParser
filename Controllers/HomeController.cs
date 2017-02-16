@@ -9,13 +9,13 @@ namespace IPParser.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string IpAddress)
         {
             // Create the Http client
             HttpClient client = new HttpClient();
 
             // Build the Http request string
-            string apiUrl = "https://freegeoip.net/json/2001:240:219d:f300:147f:1e2d:10b:3f80";
+            string apiUrl = "https://freegeoip.net/json/" + IpAddress;
 
             // Send the GET request
             var response = client.GetAsync(apiUrl).Result;
